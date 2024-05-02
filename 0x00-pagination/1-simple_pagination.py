@@ -38,10 +38,4 @@ class Server:
         assert page > 0
         assert page_size > 0
         (start, end) = index_range(page, page_size)
-        list_data = []
-        count = 0
-        for line in self.dataset():
-            if count >= start and count < end:
-                list_data.append(line)
-            count += 1
-        return list_data
+        return self.dataset()[start: end]
