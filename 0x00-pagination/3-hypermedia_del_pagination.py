@@ -42,6 +42,7 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """ """
         data_index = self.indexed_dataset()
+        index = 0 if index is None else index
         next_index = index + page_size
         list_data = []
         count = next_index - index
@@ -56,6 +57,6 @@ class Server:
                     assert idx in list_index
                     next_index = list_index[idx + 1]
 
-        dic = {'index': index if index else 0, 'data': list_data,
+        dic = {'index': index, 'data': list_data,
                'page_size': page_size, 'next_index': next_index}
         return dic
