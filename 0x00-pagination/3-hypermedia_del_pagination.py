@@ -56,6 +56,6 @@ class Server:
                     assert idx in list_index
                     next_index = list_index[idx + 1]
 
-        dic = {'index': index, 'data': list_data,
+        dic = {'index': index if index else 0, 'data': list_data,
                'page_size': page_size, 'next_index': next_index}
         return dic
