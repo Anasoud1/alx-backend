@@ -39,7 +39,7 @@ class Server:
         start, end = index_range(page, page_size)
         return self.dataset()[start: end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """return a dictionary"""
         tot_p = len(self.dataset()) / page_size
         dic = {'page_size': page_size, 'page': page,
