@@ -44,7 +44,7 @@ class Server:
         tot_p = len(self.dataset()) / page_size
         dic = {'page_size': page_size, 'page': page,
                'data': self.get_page(page, page_size),
-               'next_page': None if page + 1 > page else page + 1,
+               'next_page': None if page + 1 > tot_p else page + 1,
                'prev_page': None if page - 1 == 0 else page - 1,
                'total_pages': int(tot_p + 1) if tot_p % 1 != 0 else int(tot_p)}
         return dic
