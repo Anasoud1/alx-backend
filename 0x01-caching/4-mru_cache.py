@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" LRUCache module """
+""" MRUCache module """
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
-    """Define LRUCache"""
+class MRUCache(BaseCaching):
+    """Define MRUCache"""
 
     def __init__(self):
         """constructor"""
@@ -19,8 +19,7 @@ class LRUCache(BaseCaching):
             self.queue.append(key)
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                idx_del = self.queue.pop(0)
-                print(f"DISCARD: {idx_del}")
+                idx_del = self.queue.pop(-2)
                 del self.cache_data[idx_del]
 
     def get(self, key):
